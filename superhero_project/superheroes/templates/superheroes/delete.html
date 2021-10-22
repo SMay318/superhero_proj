@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Hero</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete?</h1>
+    <a href="{% url 'superheroes:index' %}"><button>home</button></a>
+    <form action="{% url 'superheroes:delete' delete_hero.id%}" method="post">
+        {% csrf_token %}
+        Name: <input type='text' name='name' id='name' value={{delete_hero.name}}><br/>
+        Alter Ego: <input type='text' name='alter_ego' id='alter_ego' value={{delete_hero.alter_ego}}><br/>
+        Primary Ability: <input type='text' name='primary' id='primary'value={{delete_hero.primary_ability}}><br/>
+        Secondary Ability: <input type='text' name='secondary' id='secondary'value={{delete_hero.secondary_ability}}><br/>
+        Catchphrase: <input type='text' name='catchphrase' id='catchphrase'value={{delete_hero.catch_phrase}}><br/>
+        <input type="submit" value="delete!">
+    
+</body>
+</html>
